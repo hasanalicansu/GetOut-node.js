@@ -1,0 +1,96 @@
+@BASE_URL = http://localhost:3000/api
+@TOKEN = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjkwMmRkMjIyOTc1NjA0MjJlYzljMzUiLCJpYXQiOjE2MDQ0NDkxMTAsImV4cCI6MTYwNDcwODMxMH0.ye7o_ayIENHMwXMLIEnecjRb1nwLnfjfkr50R_0pW1g
+//huseyin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjhlZWNjOThhYTY5MzA1ZjA4NmMyMjciLCJpYXQiOjE2MDMyMDIyNTUsImV4cCI6MTYwMzQ2MTQ1NX0.zaaNOSvz7rrIdpb1oDudJqA4fIMNp6MLozjjQ8LJKIA
+//erdo eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjhmMWNiOWZlOTRiNTA5YWI4YzM5NjQiLCJpYXQiOjE2MDQ0NDQzMjcsImV4cCI6MTYwNDcwMzUyN30.y5z41BSBW_KcOJvD-NVCQ1AdN2DeSxM-v33UMUWhA50
+
+###
+GET {{BASE_URL}}/users
+Authorization: {{TOKEN}}
+
+//arkadaş ekler
+###
+GET {{BASE_URL}}/arkadas/add/5f902d0e2297560422ec9c31
+Authorization: {{TOKEN}}
+
+//arkadaş isteklerini getirir
+###
+GET {{BASE_URL}}/arkadas/istekgetir
+Authorization: {{TOKEN}}
+
+//arkadaş isteğini onaylar
+###
+GET {{BASE_URL}}/arkadas/istek/onay/5f8f25df7c7dc30af403e049
+Authorization: {{TOKEN}}
+
+//arkadaş isteğini reddeder
+###
+GET {{BASE_URL}}/arkadas/istek/red/5f8f27d17c7dc30af403e04b
+Authorization: {{TOKEN}}
+
+//arkadaş isteği atar
+###
+GET {{BASE_URL}}/arkadas/istek/5f8eecc98aa69305f086c227
+Authorization: {{TOKEN}}
+
+//arkadaşları getirir
+###
+GET {{BASE_URL}}/arkadas/get
+Authorization: {{TOKEN}}
+
+
+//Belirtilen arkadaşı siler
+###
+GET {{BASE_URL}}/arkadas/arkadasSil/5f8f19deda673a0986e09078
+Authorization: {{TOKEN}}
+
+
+
+//kullanıcı arama
+###
+GET {{BASE_URL}}/arkadas/arama/hasan
+Authorization: {{TOKEN}}
+
+//durumu günceller
+###
+PATCH {{BASE_URL}}/durum
+Authorization: {{TOKEN}}
+Content-Type: application/json
+
+{
+    "text":"Hasanın durumu",
+    "durum":true
+}
+
+//durumu getirir
+###
+GET {{BASE_URL}}/durum/get
+Authorization: {{TOKEN}}
+
+
+//hesap oluştur
+###
+POST {{BASE_URL}}/users/createAccount
+Content-Type: application/json
+
+{
+    "isim":"samet karaca",
+    "email" : "samo@test.com",
+    "userName" : "samo",
+    "sifre" : "123456"
+}
+
+//giriş yap
+###
+POST {{BASE_URL}}/users/login
+Content-Type: application/json
+
+{
+    "email" : "samo@test.com",
+    "sifre" : "123456"
+}
+
+
+//token giriş
+###
+GET {{BASE_URL}}/users/login/token
+Authorization: {{TOKEN}}
